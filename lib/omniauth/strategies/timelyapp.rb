@@ -54,17 +54,17 @@ module OmniAuth
       end
 
       def raw_info
-        #p access_token
-        #{'id'=> '555554'}
         access_token.options[:mode] = :header
-        acct_id = access_token.get('/1.1/accounts').parsed.first['id'] if @raw_info.nil?
-        @raw_info ||= access_token.get("/1.1/#{acct_id}/users/current").parsed.merge({account_id: acct_id})
+        if @raw_info.nil?
+          acct = access_token.get('/1.1/accounts').parsed.first
+          acct_id = acct['id'] 
+        end
+        @raw_info ||= access_token.get("/1.1/#{acct_id}/users/current").parsed.merge({account: acct})
       end
 
       extra do
         accts =  access_token.get('/1.1/accounts').parsed
         acctid = accts.first['id']
-        #ahash = accts.map { |a| [a['id'], a] }.to_h
         {
           'account_id' => acctid,
           'accounts' => accts
