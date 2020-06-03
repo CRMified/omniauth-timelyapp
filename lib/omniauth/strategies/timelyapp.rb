@@ -33,12 +33,11 @@ module OmniAuth
       #  super
       #end
 
-      uid { raw_info['id'] }
+      uid { raw_info['user']['id'] }
 
       info do
         unless @info
-          api = OmniAuth::TimelyApp::API.new(token)
-          @info = api.get("/accounts")
+          @info = access_token.get("/1.1/#{raw_info['account_id']}/users/current").parsed
         end
 
         @info
@@ -50,7 +49,6 @@ module OmniAuth
 
       credentials do
         hash = {'token' => access_token.token}
-        #hash.merge!('token_type' => access_token.token_type) if access_token.token_type
         hash.merge!('refresh_token' => access_token.refresh_token) if access_token.refresh_token
         hash
       end
@@ -59,15 +57,16 @@ module OmniAuth
         #p access_token
         #{'id'=> '555554'}
         access_token.options[:mode] = :header
-        @raw_info ||= access_token.get('/1.1/accounts').parsed
+        acct_id =  if @raw_info.nil?
+        @raw_info ||= access_token.get("/1.1/#{acct_id}/users/current").parsed
       end
 
       extra do
+        accts =  access_token.get('/1.1/accounts').parsed
         raw_info.merge({
-         #'instance_url' => access_token.params['instance_url'],
-         # 'pod' => access_token.params['instance_url'],
-         # 'signature' => access_token.params['signature'],
-         # 'issued_at' => access_token.params['issued_at']
+         'account_id' => accts.first['id'],
+         'accounts' => accts,
+         'user' => access_token.get("/1.1/#{accts.first['id']}/users/current").parsed
         })
       end
 
