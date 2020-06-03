@@ -63,10 +63,10 @@ module OmniAuth
 
       extra do
         accts =  access_token.get('/1.1/accounts').parsed
-        raw_info.merge({
-         'account_id' => accts.first['id'],
-         'accounts' => accts
-        })
+        {
+          'account_id' => accts.first['id'],
+          'accounts' => accts.index_by(&:id)
+         }
       end
 
     end
