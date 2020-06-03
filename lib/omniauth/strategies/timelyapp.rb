@@ -50,7 +50,7 @@ module OmniAuth
 
       credentials do
         hash = {'token' => access_token.token}
-        hash.merge!('token_type' => access_token.token_type) if access_token.token_type
+        #hash.merge!('token_type' => access_token.token_type) if access_token.token_type
         hash.merge!('refresh_token' => access_token.refresh_token) if access_token.refresh_token
         hash
       end
