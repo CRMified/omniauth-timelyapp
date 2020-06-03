@@ -65,8 +65,7 @@ module OmniAuth
         accts =  access_token.get('/1.1/accounts').parsed
         raw_info.merge({
          'account_id' => accts.first['id'],
-         'accounts' => accts,
-         'user' => access_token.get("/1.1/#{accts.first['id']}/users/current").parsed
+         'accounts' => accts
         })
       end
 
