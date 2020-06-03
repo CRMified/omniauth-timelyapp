@@ -7,9 +7,9 @@ module OmniAuth
     class Timelyapp < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
-        :site          => 'https://api.timelyapp.com/1.1',
-        :authorize_url => '/oauth/authorize',
-        :token_url     => '/oauth/token',
+        :site          => 'https://api.timelyapp.com',
+        :authorize_url => '/1.1/oauth/authorize',
+        :token_url     => '/1.1/oauth/token',
         :grant_type    => 'authorization_code'
       }
       option :authorize_options, [
