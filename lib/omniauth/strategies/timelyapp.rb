@@ -64,7 +64,7 @@ module OmniAuth
       extra do
         accts =  access_token.get('/1.1/accounts').parsed
         acctid = accts.first['id']
-        ahash = accts.map { |a| [a['id'], a] }.to_h
+        #ahash = accts.map { |a| [a['id'], a] }.to_h
         {
           'account_id' => acctid,
           'accounts' => accts
