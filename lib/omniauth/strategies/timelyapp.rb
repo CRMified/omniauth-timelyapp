@@ -4,7 +4,7 @@ require 'base64'
 
 module OmniAuth
   module Strategies
-    class TimelyApp < OmniAuth::Strategies::OAuth2
+    class Timelyapp < OmniAuth::Strategies::OAuth2
 
       option :client_options, {
         :site          => 'https://api.timelyapp.com/1.1',

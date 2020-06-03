@@ -1,5 +1,5 @@
 module OmniAuth
-  module TimelyApp
+  module Timelyapp
     VERSION = '1.1.0'
   end
 end
