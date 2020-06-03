@@ -37,7 +37,7 @@ module OmniAuth
 
       info do
         unless @info
-          @info = {}}
+          @info = access_token.get("/1.1/#{raw_info['account_id']}/users/current").parsed
         end
 
         @info
