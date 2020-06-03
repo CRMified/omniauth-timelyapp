@@ -37,7 +37,7 @@ module OmniAuth
 
       info do
         unless @info
-          @info = raw_info['user']
+          @info = raw_info
         end
 
         @info
