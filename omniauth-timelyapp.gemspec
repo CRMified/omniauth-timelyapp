@@ -2,7 +2,7 @@ require File.expand_path('../lib/omniauth-timelyapp/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ['Joshua Hoskins']
-  gem.email         = ['jhoskins@crmified.com']
+  gem.email         = ['hello@crmified.com']
   gem.description   = 'OmniAuth strategy for timelyapp.com.'
   gem.summary       = 'OmniAuth strategy for timelyapp.com.'
   gem.homepage      = 'https://github.com/CRMified/omniauth-timelyapp'
