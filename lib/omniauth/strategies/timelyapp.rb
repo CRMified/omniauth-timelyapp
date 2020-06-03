@@ -33,7 +33,7 @@ module OmniAuth
       #  super
       #end
 
-      uid { raw_info['user']['id'] }
+      uid { raw_info['id'] }
 
       info do
         unless @info
