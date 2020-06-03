@@ -59,7 +59,7 @@ module OmniAuth
         #p access_token
         #{'id'=> '555554'}
         access_token.options[:mode] = :header
-        @raw_info ||= access_token.get('/accounts').parsed
+        @raw_info ||= access_token.get('/1.1/accounts').parsed
       end
 
       extra do
