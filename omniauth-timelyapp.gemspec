@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split('\n')
   gem.name          = 'omniauth-timelyapp'
   gem.require_paths = ['lib']
-  gem.version       = OmniAuth::TimelyApp::VERSION
+  gem.version       = OmniAuth::Timelyapp::VERSION
   gem.license       = 'MIT'
 
   gem.add_dependency 'omniauth', '~> 1.0'
