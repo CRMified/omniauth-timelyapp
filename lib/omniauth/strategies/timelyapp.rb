@@ -37,7 +37,7 @@ module OmniAuth
 
       info do
         unless @info
-          @info = access_token.get("/1.1/#{raw_info['account_id']}/users/current").parsed
+          @info = {}}
         end
 
         @info
@@ -57,7 +57,7 @@ module OmniAuth
         #p access_token
         #{'id'=> '555554'}
         access_token.options[:mode] = :header
-        acct_id =  if @raw_info.nil?
+        acct_id = access_token.get('/1.1/accounts').parsed.first['id'] if @raw_info.nil?
         @raw_info ||= access_token.get("/1.1/#{acct_id}/users/current").parsed
       end
 
@@ -73,5 +73,4 @@ module OmniAuth
     end
 
   end
-end
 end
