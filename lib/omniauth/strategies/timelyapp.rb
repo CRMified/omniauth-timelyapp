@@ -16,6 +16,10 @@ module OmniAuth
         :redirect_uri,
         :grant_type
       ]
+      
+      def authorize_params
+        super.merge(foo_param: request.params["foo_param"], bar_param: request.params["bar_param"])
+      end
 
       #def request_phase
       #  req = Rack::Request.new(@env)
