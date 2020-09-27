@@ -16,6 +16,9 @@ module OmniAuth
         :redirect_uri,
         :grant_type
       ]
+      option :authorize_params, {grant_type: 'authorization_code'}
+      option :token_params, {grant_type: 'authorization_code'}
+      option :auth_token_params, {grant_type: 'authorization_code'}
 
       #def request_phase
       #  req = Rack::Request.new(@env)
