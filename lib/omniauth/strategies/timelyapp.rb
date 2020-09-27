@@ -16,6 +16,10 @@ module OmniAuth
         :redirect_uri,
         :grant_type
       ]
+      
+      def callback_url
+        full_host + script_name + callback_path
+      end
 
       #def request_phase
       #  req = Rack::Request.new(@env)
